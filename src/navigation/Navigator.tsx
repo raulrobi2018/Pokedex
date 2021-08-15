@@ -2,7 +2,6 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {HomeScreen} from '../screens/HomeScreen';
 import {PokemonScreen} from '../screens/PokemonScreen';
-import {RootStackParams} from '../../../05-MoviesApp/src/navigation/Navigation';
 import {SimplePokemon} from '../interfaces/pokemonInterfaces';
 
 export type RootStackParams = {
@@ -19,10 +18,8 @@ export const Navigator = () => {
         headerShown: false,
         cardStyle: {backgroundColor: 'white'},
       }}>
-      <Stack.Screen name="HomeScreen" component={HomeScreen}></Stack.Screen>
-      <Stack.Screen
-        name="PokemonScreen"
-        component={PokemonScreen}></Stack.Screen>
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="PokemonScreen" component={PokemonScreen} />
     </Stack.Navigator>
   );
 };

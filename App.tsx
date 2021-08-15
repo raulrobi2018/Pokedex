@@ -1,11 +1,12 @@
 import React from 'react';
-import {Navigator} from './src/navigation/Navigator';
 import {NavigationContainer} from '@react-navigation/native';
+import {Tabs} from './src/navigation/Tabs';
 
 export const App = () => {
   return (
     <NavigationContainer>
-      <Navigator />
+      {/* <Navigator /> */}
+      <Tabs />
     </NavigationContainer>
   );
 };
