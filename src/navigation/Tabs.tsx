@@ -10,8 +10,10 @@ export const Tabs = () => {
   return (
     <Tab.Navigator
       sceneContainerStyle={styles.container}
-      screenOptions={{
-        tabBarLabelStyle: styles.tabBarLabel,
+      tabBarOptions={{
+        activeTintColor: 'red',
+        labelStyle: styles.tabBarLabel,
+        style: styles.tabs,
       }}>
       <Tab.Screen name="HomeScreen" component={Navigator} />
       <Tab.Screen name="SearchScreen" component={SearchScreen} />
