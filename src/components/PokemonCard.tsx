@@ -13,6 +13,8 @@ interface Props {
   pokemon: SimplePokemon;
 }
 
+const DEFAULT_COLOR = '#a6a6a6';
+
 export const PokemonCard = ({pokemon}: Props) => {
   const navigation = useNavigation();
 
@@ -24,13 +26,18 @@ export const PokemonCard = ({pokemon}: Props) => {
   useEffect(() => {
     //   IOS background
     //Android: dominant color
-    ImageColors.getColors(pokemon.picture, {fallback: 'grey'}).then(colors => {
-      if (!isMounted.current) return;
 
-      colors.platform === 'android'
-        ? setBgColor(colors.dominant || 'grey')
-        : setBgColor(colors.background || 'grey');
-    });
+    ImageColors.getColors(pokemon.picture, {fallback: DEFAULT_COLOR})
+      .then(colors => {
+        if (!isMounted.current) return;
+
+        colors.platform === 'android'
+          ? setBgColor(colors.dominant || DEFAULT_COLOR)
+          : setBgColor(colors.background || DEFAULT_COLOR);
+      })
+      .catch(err => {
+        setBgColor(DEFAULT_COLOR);
+      });
 
     return () => {
       isMounted.current = false;

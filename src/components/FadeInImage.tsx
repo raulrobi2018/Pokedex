@@ -15,9 +15,12 @@ interface Props {
   style?: StyleProp<ImageStyle>;
 }
 
+const NOT_FOUND_IMAGE = 'pokebolacolor.png';
+
 export const FadeInImage = ({uri, style = {}}: Props) => {
   const {opacity, fadeIn} = useAnimation();
   const [isLoading, setIsLoading] = useState(true);
+  const [source, setSource] = useState({uri});
 
   const finishLoading = () => {
     setIsLoading(false);
@@ -26,6 +29,7 @@ export const FadeInImage = ({uri, style = {}}: Props) => {
 
   const onError = (err: NativeSyntheticEvent<ImageErrorEventData>) => {
     setIsLoading(false);
+    setSource(require(`../assets/${NOT_FOUND_IMAGE}`));
   };
 
   return (
@@ -44,6 +48,9 @@ export const FadeInImage = ({uri, style = {}}: Props) => {
       )}
 
       <Animated.Image
+        // Si se quiere mostrar una imagen alternativa cuando no existe,
+        // hacerlo con este método
+        // source={source}
         source={{uri}}
         onError={onError}
         onLoad={finishLoading}

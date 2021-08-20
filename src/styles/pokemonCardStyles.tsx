@@ -45,8 +45,8 @@ export const styles = StyleSheet.create({
     opacity: 0.5,
   },
   pokemonImage: {
-    width: 110,
-    height: 110,
+    width: 80,
+    height: 80,
     position: 'absolute',
     right: -8,
     bottom: -8,

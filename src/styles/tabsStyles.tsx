@@ -5,10 +5,15 @@ export const styles = StyleSheet.create({
     backgroundColor: 'red',
   },
   tabs: {
-    backgroundColor: 'blue',
+    fontSize: 13,
+    color: '#ffc266',
   },
   tabBarLabel: {
-    color: 'green',
-    marginBottom: Platform.OS === 'ios' ? 0 : 10,
+    marginBottom: 0,
+    elevation: 0,
+    height: Platform.OS === 'ios' ? 0 : 60,
+    position: 'absolute',
+    backgroundColor: 'rgba(255,255,255,0.92)',
+    borderWidth: 0,
   },
 });

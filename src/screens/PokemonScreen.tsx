@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {RootStackParams} from '../navigation/Navigator';
+import {RootStackParams} from '../navigation/HomeTab';
 import {styles as pokemonStyles} from '../styles/pokemonStyles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';

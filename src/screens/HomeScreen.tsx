@@ -4,8 +4,6 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {usePokemonPagination} from '../hooks/usePokemonPagination';
 import {styles} from '../styles/appStyles';
 import {styles as homeStyles} from '../styles/homeStyles';
-import {StyleSheet} from 'react-native';
-import {FadeInImage} from '../components/FadeInImage';
 import {PokemonCard} from '../components/PokemonCard';
 
 export const HomeScreen = () => {
