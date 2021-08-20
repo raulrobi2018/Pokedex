@@ -1,5 +1,6 @@
 import {Dimensions, StyleSheet} from 'react-native';
 import {color} from 'react-native-reanimated';
+import tinycolor from 'tinycolor2';
 
 const {width, height} = Dimensions.get('window');
 
@@ -41,7 +42,8 @@ export const styles = (color: string) =>
     container: {
       ...StyleSheet.absoluteFillObject,
       flex: 1,
-      backgroundColor: hexToRgbA(color, 0.4),
+      // backgroundColor: hexToRgbA(color, 0.4),
+      backgroundColor: 
       zIndex: -1,
       paddingBottom: 20,
     },
