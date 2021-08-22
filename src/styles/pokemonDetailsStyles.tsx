@@ -42,8 +42,8 @@ export const styles = (color: string) =>
     container: {
       ...StyleSheet.absoluteFillObject,
       flex: 1,
-      // backgroundColor: hexToRgbA(color, 0.4),
-      backgroundColor: 
+      backgroundColor: hexToRgbA(color, 0.4),
+      // backgroundColor: 
       zIndex: -1,
       paddingBottom: 20,
     },
