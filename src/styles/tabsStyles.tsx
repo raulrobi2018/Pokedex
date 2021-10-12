@@ -6,14 +6,14 @@ export const styles = StyleSheet.create({
   },
   tabs: {
     fontSize: 13,
-    color: '#ffc266',
+    color: 'white',
   },
   tabBarLabel: {
     marginBottom: 0,
     elevation: 0,
     height: Platform.OS === 'ios' ? 0 : 60,
     position: 'absolute',
-    backgroundColor: 'rgba(255,255,255,0.92)',
+    backgroundColor: 'white',
     borderWidth: 0,
   },
 });

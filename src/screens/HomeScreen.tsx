@@ -32,17 +32,17 @@ export const HomeScreen = () => {
               color="grey"
             />
           }
-          ListHeaderComponent={
-            <Text
-              style={{
-                ...styles.title,
-                ...styles.globalMargin,
-                top: top + 20,
-                marginBottom: top + 20,
-              }}>
-              Pokedex
-            </Text>
-          }
+          // ListHeaderComponent={
+          //   <Text
+          //     style={{
+          //       ...styles.title,
+          //       ...styles.globalMargin,
+          //       top: top + 20,
+          //       marginBottom: top + 20,
+          //     }}>
+          //     Pokedex
+          //   </Text>
+          // }
           showsVerticalScrollIndicator={false}
           numColumns={2}
         />

@@ -15,30 +15,27 @@ export const Tabs = () => {
         tabBarActiveTintColor: 'gray',
       }}>
       <Tab.Screen
-        name="Home"
+        name="Pokemon Album"
         component={HomeTab}
         options={{
           tabBarLabel: 'Listar',
-          tabBarIcon: () => (
-            <Icon color="rgba(230, 138, 0, 0.7)" size={35} name="list" />
-          ),
+          tabBarIcon: () => <Icon color="white" size={35} name="list" />,
           tabBarLabelStyle: styles.tabs,
-          tabBarActiveTintColor: '#e68a00',
-          tabBarActiveBackgroundColor: '#fff5e6',
+          tabBarActiveTintColor: 'white',
+          tabBarActiveBackgroundColor: 'rgba(247, 27, 27, 1)',
         }}
       />
       <Tab.Screen
         name="SearchTab"
         component={SearchTab}
         options={{
-          tabBarLabel: 'Buscar',
-          tabBarIcon: () => (
-            <Icon color="rgba(230, 138, 0, 0.7)" size={35} name="search" />
-          ),
+          // tabBarLabel: 'Buscar',
+          tabBarShowLabel: false,
+          tabBarIcon: () => <Icon color="white" size={35} name="search" />,
           tabBarLabelStyle: styles.tabs,
           headerShown: false,
-          tabBarActiveTintColor: '#e68a00',
-          tabBarActiveBackgroundColor: '#fff5e6',
+          tabBarActiveTintColor: 'white',
+          tabBarActiveBackgroundColor: 'rgba(247, 27, 27, 1)',
         }}
       />
     </Tab.Navigator>
