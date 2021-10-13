@@ -1,13 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {styles} from '../styles/tabsStyles';
 import {HomeTab} from './HomeTab';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {SearchTab} from './SearchTab';
+import SplashScreen from 'react-native-splash-screen';
 
 const Tab = createBottomTabNavigator();
 
 export const Tabs = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <Tab.Navigator
       screenOptions={{
