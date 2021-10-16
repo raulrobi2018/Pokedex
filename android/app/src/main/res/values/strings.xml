@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Pokemon Album</string>
+    <string name="pokemon_album">Pokemon Album</string>
+    <string name="Pokemon_album">TODO</string>
 </resources>
