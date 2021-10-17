@@ -17,7 +17,7 @@ export const usePokemonSearch = () => {
 
   const loadPokemons = async () => {
     const resp = await pokemonApi.get<PokemonPaginationResponse>(
-      `http://pokeapi.co/api/v2/pokemon?limit=1200`,
+      `http://pokeapi.co/api/v2/pokemon?limit=100`,
     );
 
     //Asigna los registros
