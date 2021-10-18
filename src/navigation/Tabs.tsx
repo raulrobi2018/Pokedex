@@ -18,6 +18,7 @@ export const Tabs = () => {
       screenOptions={{
         tabBarStyle: styles.tabBarLabel,
         tabBarActiveTintColor: 'gray',
+        headerShown: false,
       }}>
       <Tab.Screen
         name="Pokemon Album"

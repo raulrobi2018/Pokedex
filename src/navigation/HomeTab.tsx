@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {HomeScreen} from '../screens/HomeScreen';
 import {PokemonScreen} from '../screens/PokemonScreen';
 import {SimplePokemon} from '../interfaces/pokemonInterfaces';
+import SplashScreen from 'react-native-splash-screen';
 
 export type RootStackParams = {
   HomeScreen: undefined;
@@ -11,7 +12,12 @@ export type RootStackParams = {
 
 const Stack = createStackNavigator<RootStackParams>();
 
+//Este es el navigator principal
 export const HomeTab = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <Stack.Navigator
       screenOptions={{
