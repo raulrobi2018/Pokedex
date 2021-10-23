@@ -1,19 +1,19 @@
-import {useRef} from 'react';
 import {useState} from 'react';
-import {useEffect} from 'react';
+import {ToastAndroid} from 'react-native';
 import {pokemonApi} from '../api/pokemonApi';
-import {SimplePokemon} from '../interfaces/pokemonInterfaces';
+import {FullPokemon, SimplePokemon} from '../interfaces/pokemonInterfaces';
 import {
   PokemonPaginationResponse,
   Result,
 } from '../interfaces/pokemonInterfaces';
 
 export const usePokemonSearch = () => {
-  const [isFetching, setIsFetching] = useState(true);
-
+  const [isFetching, setIsFetching] = useState(false);
   const [simplePokemonList, setSimplePokemonList] = useState<SimplePokemon[]>(
     [],
   );
+
+  const [simplePokemon, setSimplePokemon] = useState<SimplePokemon>(undefined);
 
   const loadPokemons = async () => {
     const resp = await pokemonApi.get<PokemonPaginationResponse>(
@@ -22,6 +22,41 @@ export const usePokemonSearch = () => {
 
     //Asigna los registros
     mapPokemonListToSimplePokemon(resp.data.results);
+  };
+
+  const findPokemon = async (nameOrId: string) => {
+    try {
+      setIsFetching(true);
+      const resp = await pokemonApi.get<FullPokemon>(
+        `http://pokeapi.co/api/v2/pokemon/${nameOrId}`,
+      );
+
+      if (resp) {
+        //Asigna los registros
+        mapFullPokemonToSimplePokemon(resp.data);
+      }
+    } catch (error) {
+      setIsFetching(false);
+      ToastAndroid.showWithGravity(
+        'The Pokemon does not exist',
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER,
+      );
+    }
+  };
+
+  //Convertimos el resultado en nuestro SimplePokemon
+  const mapFullPokemonToSimplePokemon = (pokemon: FullPokemon) => {
+    const {id, name} = pokemon;
+
+    const picture = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+    const newPokemon: SimplePokemon = {
+      id: id + '',
+      picture,
+      name,
+    };
+    setSimplePokemon(newPokemon);
+    setIsFetching(false);
   };
 
   //Convertimos el resultado en nuestro SimplePokemon
@@ -45,9 +80,9 @@ export const usePokemonSearch = () => {
     setIsFetching(false);
   };
 
-  useEffect(() => {
-    loadPokemons();
-  }, []);
+  // useEffect(() => {
+  //   loadPokemons();
+  // }, []);
 
-  return {isFetching, simplePokemonList};
+  return {isFetching, simplePokemonList, findPokemon, simplePokemon};
 };

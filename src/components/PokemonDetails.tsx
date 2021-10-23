@@ -67,7 +67,10 @@ export const PokemonDetails = ({pokemon, color}: Props) => {
         {/* Movimientos */}
         <View style={styles.itemRow}>
           <Text style={styles.label}>Movimientos</Text>
-          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            pagingEnabled={true}>
             {pokemon.moves.map(({move}) => (
               <Text style={styles.item} key={move.name}>
                 {move.name.charAt(0).toUpperCase() + move.name.slice(1)}

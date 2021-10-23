@@ -26,7 +26,6 @@ export const PokemonCard = ({pokemon}: Props) => {
   useEffect(() => {
     //   IOS background
     //Android: dominant color
-
     ImageColors.getColors(pokemon.picture, {fallback: DEFAULT_COLOR})
       .then(colors => {
         if (!isMounted.current) return;
