@@ -1,5 +1,5 @@
 import React, {useRef, useState, useEffect} from 'react';
-import {ActivityIndicator, View, ViewStyle} from 'react-native';
+import { View, ViewStyle, Text } from 'react-native';
 import {TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 import {styles as searchStyles} from '../styles/searchStyles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -26,9 +26,10 @@ export const SearchInput = ({style, onDebounce}: Props) => {
   const styles = searchStyles(top);
 
   const [textValue, setTextValue] = useState('');
+  const [isFinding, setIsFinding] = useState(false);
   const debeouncedValue = useDebounce(textValue);
 
-  const {findPokemon, simplePokemon, isFetching} = usePokemonSearch();
+  const {findPokemon, simplePokemon} = usePokemonSearch();
 
   useEffect(() => {
     onDebounce(debeouncedValue);
@@ -70,23 +71,21 @@ export const SearchInput = ({style, onDebounce}: Props) => {
     }
   }, [simplePokemon]);
 
-  return !{isFetching} ? (
-    <ActivityIndicator size={50} color="grey" />
-  ) : (
-    <View style={styles.inputContainer}>
-      <View style={styles.textInputContainer}>
-        <TextInput
-          placeholder="Nombre o número"
-          style={styles.textInput}
-          autoCapitalize="none"
-          autoCorrect={false}
-          value={textValue}
-          onChangeText={setTextValue}
-        />
-        <TouchableOpacity onPress={handleOnPres}>
-          <Icon color="gray" size={30} name="search" />
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
+  return (
+          <View style={styles.inputContainer}>
+            <View style={styles.textInputContainer}>
+              <TextInput
+                placeholder="Nombre o número"
+                style={styles.textInput}
+                autoCapitalize="none"
+                autoCorrect={false}
+                value={textValue}
+                onChangeText={setTextValue}
+              />
+              <TouchableOpacity onPress={handleOnPres}>
+                <Icon color="gray" size={30} name="search" />
+              </TouchableOpacity>
+            </View>
+          </View>
+      )
 };

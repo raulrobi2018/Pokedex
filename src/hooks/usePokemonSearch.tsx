@@ -36,7 +36,6 @@ export const usePokemonSearch = () => {
         mapFullPokemonToSimplePokemon(resp.data);
       }
     } catch (error) {
-      setIsFetching(false);
       ToastAndroid.showWithGravity(
         'The Pokemon does not exist',
         ToastAndroid.SHORT,

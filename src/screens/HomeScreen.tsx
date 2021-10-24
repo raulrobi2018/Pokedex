@@ -16,8 +16,14 @@ export const HomeScreen = () => {
 
   // SearchUnput hooks
   const [term, setTerm] = useState('');
+  const [isFinding, setIsFinding] = useState(false);
   const {isFetching, simplePokemon} = usePokemonSearch();
   // const [pokemonFiltered, setPokemonFiltered] = useState<SimplePokemon[]>([]);
+
+  useEffect(() => {
+    console.log(isFetching);
+isFetching ? setIsFinding(true) : setIsFinding(false);
+  }, [isFetching]);
 
   return (
     <>
@@ -26,7 +32,7 @@ export const HomeScreen = () => {
         style={(styles.globalMargin, styles.pokebola)}
       />
 
-      {isFetching && (
+      {isFinding && (
         <ActivityIndicator
           style={homeStyles.activityIndicator}
           size={50}
